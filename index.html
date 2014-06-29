@@ -16,8 +16,8 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1 class="header">Cordova-step-by-step</h1>
-        <p class="header"></p>
+        <h1 class="header">Git repo</h1>
+         <p class="header"></p>
 
         <ul>
           <li class="download"><a class="buttons" href="https://github.com/Jalalhejazi/cordova-step-by-step/zipball/master">Download ZIP</a></li>
@@ -31,42 +31,141 @@
       </header>
       <section>
         <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>git clone</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+</p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<pre><code>git clone https://github.com/Jalalhejazi/cordova-step-by-step.git</code></pre>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+  <a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span>
+</a>About the App</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>In this tutorial, you’ll create a fully functional employee directory application with
+<a href="http://cordova.apache.org/">Apache Cordova</a>
+</p>
+<p>
+  <ul>
+    <li>How to use different local data storage strategies.</li>
+    <li>How to use several Cordova APIs such as Geolocation, Contacts, and Camera.</li>
+    <li>How to handle specific mobile problems such as touch events, scrolling, styling and page transitions</li>
+    <li>How to build an application using a single-page architecture and HTML templates.</li>
+    <li>How to build (compile and package) an application locally using the Cordova CLI (Command Line Interface)</li>
+  </ul>
+</p>
+
+
+
+<h3>Requirements:</h3>
+
+<p>
+  To complete this workshop, all you need is a code editor, a modern browser, and a connection to the Internet. <br>
+
+A working knowledge of HTML and JavaScript is assumed, but you don’t need to be a JavaScript guru. But you need to have good understanding of javascript, browser and terminal.
+</p>
+
 
 <h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+  Creating a Cordova Project
+</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<ol>
+  <li>Make sure an up-to-date version of <a href="http://nodejs.org/">Node.js</a> is installed on your system.</li>
+  <li>Open your Terminal, and type the following command to install the Cordova CLI: <br>
+ <pre><code>npm install -g cordova</code></pre>
+  </li>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+  <li>Navigate to a directory where you store projects on your system. For example:</li>
+  <br>
+  <pre><code>cd ~/dev</code></pre>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+  <li>Create a project called “workshop”:</li> <br>
+  <pre><code>cordova create workshop com.yourname.workshop Workshop</code></pre>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+  <li>Navigate to the project directory:</li>
+  <pre><code>cd workshop</code></pre>
+   your app code is in the www directory: <br>
+   <img src="images/cordova-www.png" alt="">
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
+  <li>Add the platforms you want to support. For example, to add support for iOS and Android, type:</li>
+
+  <pre><code>cordova platforms add ios
+cordova platforms add android</code></pre>
+
+  <li>Make sure you are in the “workshop” directory, and add basic plugins to your projects:</li>
+  <pre><code>cordova plugin add org.apache.cordova.device
+cordova plugin add org.apache.cordova.console</code></pre>
+
+  <li>Examine the directory structure under workshop.</li>
+  <img src="images/cordova-plugins.png" alt="">
+
+</ol>
+
+
+<h3>Building a Cordova Project (iOS)</h3>
+
+<p>
+You need the iOS SDK installed on your MAC to build an iOS version of your application using the steps below. <br>
+  <pre><code>cordova build ios</code></pre>
+
+The project is built in the workshop/platforms/ios folder. Double-click Workshop.xcodeproj to open the project in XCode, and run it in the emulator or on your device.
+
+You can also run the application in the iOS emulator directly from the command line. First install ios-sim:
+<pre><code>sudo npm install -g ios-sim</code></pre>
+
+Then run the application in the IOS emulator:
+<pre><code>cordova emulate ios</code></pre>
+
+
+You need to change the owner of the directory before using xcode IDE:
+<pre><code>sudo chown -R `whoami` platforms/ios/</code></pre>
+</p>
+
+<img src="images/xcode-emulate.png" alt="">
+
+
+
+
+<h3>Building a Cordova Project (Android)</h3>
+<p>
+You need the Android SDK installed on your computer to build an Android version of your application using the steps below. <br>
+
+To build the project in the workshop/platforms/android folder and run it on an Android device connected to your computer using a USB cable, type:
+<pre><code>cordova run android</code></pre>
+
+To build the project in the workshop/platforms/android folder and run it in the Android emulator, type:
+<pre><code>cordova emulate android</code></pre>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section><!-- end of section -->
+
       <footer>
-        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+
   </body>
 </html>
